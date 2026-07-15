@@ -1,0 +1,53 @@
+{
+  "name": "alptis/bedrock-db-error-page",
+  "description": "Composer plugin that customizes the database connection error page of WordPress Bedrock projects",
+  "type": "composer-plugin",
+  "license": "MIT",
+  "keywords": [
+    "wordpress",
+    "bedrock",
+    "composer-plugin",
+    "database",
+    "error-page",
+    "db-error.php"
+  ],
+  "authors": [
+    {
+      "name": "Frédéric Biesse"
+    },
+    {
+      "name": "Alptis",
+      "homepage": "https://www.alptis.org"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "composer-plugin-api": "^2.0",
+    "ext-mysqli": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.10"
+  },
+  "suggest": {
+    "alptis/wordpress-healthcheck": "Reports the database as critical on the healthcheck endpoints when WordPress cannot connect to it"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alptis\\BedrockDbErrorPage\\": "src/"
+    }
+  },
+  "extra": {
+    "class": "Alptis\\BedrockDbErrorPage\\Installer"
+  },
+  "scripts": {
+    "lint": "phpcs",
+    "lint:fix": "phpcbf"
+  },
+  "scripts-descriptions": {
+    "lint": "Check coding standards (PSR-12)",
+    "lint:fix": "Automatically fix coding standard violations"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

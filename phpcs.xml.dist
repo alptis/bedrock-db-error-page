@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ruleset name="bedrock-db-error-page">
+    <description>Coding standard for alptis/bedrock-db-error-page</description>
+
+    <file>src</file>
+    <file>resources</file>
+
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <rule ref="PSR12"/>
+
+    <!-- resources/db.php is a WordPress drop-in: it must declare a global class extending wpdb,
+         override its snake_case methods and instantiate $wpdb in the same file. -->
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>resources/db\.php</exclude-pattern>
+    </rule>
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>resources/db\.php</exclude-pattern>
+    </rule>
+    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+        <exclude-pattern>resources/db\.php</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+        <exclude-pattern>resources/db\.php</exclude-pattern>
+    </rule>
+</ruleset>
